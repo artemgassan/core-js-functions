@@ -116,7 +116,7 @@ function memoize(func) {
   let isCalled = false;
   let result;
 
-  return function () {
+  return function memoizeFunction() {
     if (!isCalled) {
       isCalled = true;
       result = func();
