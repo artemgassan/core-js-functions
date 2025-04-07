@@ -112,8 +112,17 @@ function getPolynom(...coeffs) {
  *   ...
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
-function memoize(/* func */) {
-  throw new Error('Not implemented');
+function memoize(func) {
+  let isCalled = false;
+  let result;
+
+  return function () {
+    if (!isCalled) {
+      isCalled = true;
+      result = func();
+    }
+    return result;
+  };
 }
 
 /**
